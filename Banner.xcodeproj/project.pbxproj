@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		823615C21DF9140700AEB410 /* CustomSwipeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 823615C11DF9140700AEB410 /* CustomSwipeTableViewCell.swift */; };
 		829160471DF64706005D878C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829160461DF64706005D878C /* AppDelegate.swift */; };
 		829160491DF64706005D878C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829160481DF64706005D878C /* ViewController.swift */; };
 		8291604C1DF64706005D878C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8291604A1DF64706005D878C /* Main.storyboard */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		823615C11DF9140700AEB410 /* CustomSwipeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSwipeTableViewCell.swift; sourceTree = "<group>"; };
 		829160431DF64706005D878C /* Banner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Banner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		829160461DF64706005D878C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		829160481DF64706005D878C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -62,6 +64,7 @@
 				829160481DF64706005D878C /* ViewController.swift */,
 				829160581DF64765005D878C /* BannerScrollView.swift */,
 				8291605C1DF69708005D878C /* CustomPageControl.swift */,
+				823615C11DF9140700AEB410 /* CustomSwipeTableViewCell.swift */,
 				8291604A1DF64706005D878C /* Main.storyboard */,
 				8291604D1DF64706005D878C /* Assets.xcassets */,
 				8291604F1DF64706005D878C /* LaunchScreen.storyboard */,
@@ -146,6 +149,7 @@
 				829160491DF64706005D878C /* ViewController.swift in Sources */,
 				829160471DF64706005D878C /* AppDelegate.swift in Sources */,
 				829160591DF64765005D878C /* BannerScrollView.swift in Sources */,
+				823615C21DF9140700AEB410 /* CustomSwipeTableViewCell.swift in Sources */,
 				8291605D1DF69708005D878C /* CustomPageControl.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -310,6 +314,7 @@
 				829160571DF64706005D878C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
