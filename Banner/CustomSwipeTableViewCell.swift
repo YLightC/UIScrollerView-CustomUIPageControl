@@ -15,6 +15,9 @@ class CustomSwipeTableViewCell: UITableViewCell {
     /// button的默认宽度是100，可以通过buttonWidth设置
     var buttonArray: [UIButton] = [] {
         didSet {
+            if buttonWidth * CGFloat(buttonArray.count) > UIScreen.main.bounds.size.width {
+                buttonWidth = UIScreen.main.bounds.size.width / CGFloat(buttonArray.count)
+            }
             addButton()
         }
     }
