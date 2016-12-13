@@ -98,10 +98,8 @@ class CustomSwipeTableViewCell: UITableViewCell {
                         moveX = 0
                     }
                 }
-                print("<-----------------------")
                 panAnimation(duringTime: 0.1, targetView: myContentView, offSetX: moveX)
             } else if myContentView.frame.origin.x <= -(buttonWidth * CGFloat(buttonArray.count)) && myContentView.frame.origin.x >= -(buttonWidth * CGFloat(buttonArray.count) + elasticityWidth) {
-                print("----------------------->")
                 lastPoint.x -= point.x
                 moveX = myContentView.frame.origin.x - lastPoint.x / 3
                 if moveX < -(buttonWidth * CGFloat(buttonArray.count) + elasticityWidth) {
