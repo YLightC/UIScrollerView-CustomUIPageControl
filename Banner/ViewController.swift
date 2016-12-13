@@ -106,10 +106,12 @@ extension ViewController : UITableViewDelegate, UITableViewDataSource {
         }
         let button1 = UIButton()
         button1.setTitle("button1", for: .normal)
-        let button2 = UIButton()
-        button2.setTitle("button2", for: .normal)
-        cell.buttonArray = [button1, button2]
-        cell.buttonActionArray = [nil,nil]
+        button1.setTitleColor(UIColor.white, for: .normal)
+        button1.backgroundColor = UIColor.black
+//        let button2 = UIButton()
+//        button2.setTitle("button2", for: .normal)
+        cell.buttonArray = [button1]
+        cell.buttonActionArray = [nil]
 //        let cell = tableView.dequeueReusableCell(withIdentifier: "cellIdentifier", for: indexPath)
 //        cell.textLabel?.text = "\(indexPath.row)"
         return cell

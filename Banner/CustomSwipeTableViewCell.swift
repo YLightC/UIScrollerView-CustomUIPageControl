@@ -21,11 +21,19 @@ class CustomSwipeTableViewCell: UITableViewCell {
             addButton()
         }
     }
+    
+    var contentViewBackgroundColor: UIColor = UIColor.red {
+        didSet {
+            myContentView.backgroundColor = contentViewBackgroundColor
+        }
+    }
+    
     var buttonActionArray: [((Void) -> Void)?] = []
     var buttonWidth: CGFloat = 100
     
     private var startPoint: CGPoint = CGPoint(x: 0, y: 0)
     private var lastPoint: CGPoint = CGPoint(x: 0, y: 0)
+    private var elasticityWidth: CGFloat = 40
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -65,8 +73,8 @@ class CustomSwipeTableViewCell: UITableViewCell {
     private func addContentView() {
         let contentViewSize = CGSize(width: UIScreen.main.bounds.size.width, height: contentView.bounds.size.height)
         myContentView.frame = CGRect(origin: CGPoint(x: 0, y: 0), size: contentViewSize)
-        self.contentView.backgroundColor = UIColor.black
-        myContentView.backgroundColor = UIColor.red
+        self.contentView.backgroundColor = buttonArray.first?.backgroundColor
+        myContentView.backgroundColor = contentViewBackgroundColor
         self.addSubview(myContentView)
         
         let panContentView = UIPanGestureRecognizer(target: self, action: #selector(panContentViewAction))
@@ -80,7 +88,7 @@ class CustomSwipeTableViewCell: UITableViewCell {
         if panAction.state == .began {
             startPoint = point
         } else if panAction.state == .changed {
-            if myContentView.frame.origin.x >= -(buttonWidth * CGFloat(buttonArray.count)) &&  myContentView.frame.origin.x <= 0 {
+            if myContentView.frame.origin.x > -(buttonWidth * CGFloat(buttonArray.count)) &&  myContentView.frame.origin.x <= 0 {
                 lastPoint.x -= point.x
                 if myContentView.frame.origin.x - lastPoint.x < -(buttonWidth * CGFloat(buttonArray.count)) {
                     moveX = -(buttonWidth * CGFloat(buttonArray.count))
@@ -89,6 +97,15 @@ class CustomSwipeTableViewCell: UITableViewCell {
                     if moveX > 0 {
                         moveX = 0
                     }
+                }
+                print("<-----------------------")
+                panAnimation(duringTime: 0.1, targetView: myContentView, offSetX: moveX)
+            } else if myContentView.frame.origin.x <= -(buttonWidth * CGFloat(buttonArray.count)) && myContentView.frame.origin.x >= -(buttonWidth * CGFloat(buttonArray.count) + elasticityWidth) {
+                print("----------------------->")
+                lastPoint.x -= point.x
+                moveX = myContentView.frame.origin.x - lastPoint.x / 3
+                if moveX < -(buttonWidth * CGFloat(buttonArray.count) + elasticityWidth) {
+                    moveX = -(buttonWidth * CGFloat(buttonArray.count) + elasticityWidth)
                 }
                 panAnimation(duringTime: 0.1, targetView: myContentView, offSetX: moveX)
             }
