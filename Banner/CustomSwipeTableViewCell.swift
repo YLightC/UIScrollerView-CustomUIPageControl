@@ -38,7 +38,11 @@ class CustomSwipeTableViewCell: UITableViewCell {
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.accessoryType = .none
-        self.focusStyle = .custom
+        if #available(iOS 9.0, *) {
+            self.focusStyle = .custom
+        } else {
+            // Fallback on earlier versions
+        }
     }
     
     required init?(coder aDecoder: NSCoder) {

@@ -56,7 +56,7 @@ class BannerScrollView: UIScrollView {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+        
     fileprivate func initSetting() {
         self.contentSize = CGSize(width: self.bounds.size.width * 3, height: 0)
         self.contentOffset = CGPoint(x: self.bounds.size.width, y: 0)
@@ -156,5 +156,3 @@ extension BannerScrollView : UIScrollViewDelegate {
     }
     
 }
-
-
